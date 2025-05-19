@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
         searchInput.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH ||
                     (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN)) {
-                String city = searchInput.getText().toString();
+
+                String city = searchInput.getText().toString().trim();
                 if (!city.isEmpty()) {
                     searchCityAndFetchWeather(city);
                 }
@@ -108,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
             return false;
         });
+
     }
 
     private void enableUserLocation() {
